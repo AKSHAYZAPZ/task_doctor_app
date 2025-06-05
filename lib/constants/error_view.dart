@@ -1,3 +1,5 @@
+import 'package:doctors_app/constants/color_constants.dart';
+import 'package:doctors_app/widgets/common_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -33,13 +35,7 @@ class ErrorView extends StatelessWidget {
           SizedBox(
             height: 20.sp,
           ),
-          ElevatedButton(onPressed: onTap, child: Text('Retry'))
-          // AppButton(
-          //   height: 40.sp,
-          //   width: 150.sp,
-          //   text: "Retry",
-          //   onTap: onTap,
-          // )
+          AppButton(onPressed: onTap, text: 'Retry', fontColor: ColorConstant.white, buttonColor: ColorConstant.appBlue)
         ],
       ),
     );

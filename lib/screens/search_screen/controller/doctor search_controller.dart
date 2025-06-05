@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import '../../../services/api_service.dart';
 import '../model/doctor_model.dart';
 
-
 class DoctorSearchController extends GetxController{
-
 
   RxBool isLoading = false.obs;
   RxBool isError = false.obs;

@@ -7,10 +7,7 @@ import '../constants/color_constants.dart';
 class GenderRadioTile extends StatelessWidget {
   final String value;
 
-  const GenderRadioTile({
-    super.key,
-    required this.value,
-  });
+  const GenderRadioTile({super.key, required this.value});
 
   @override
   Widget build(BuildContext context) {

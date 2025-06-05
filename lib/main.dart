@@ -10,13 +10,14 @@ import 'package:get/get.dart';
 import 'app_pages/app_pages.dart';
 import 'app_themes/app_themes.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([

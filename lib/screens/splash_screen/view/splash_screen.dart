@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/splash_controller.dart';
 
-
 class SplashScreen extends StatelessWidget {
-
 
 NetworkController networkController = Get.put(NetworkController());
   @override

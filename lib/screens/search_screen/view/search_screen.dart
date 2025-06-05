@@ -52,8 +52,8 @@ class DoctorSearchScreen extends StatelessWidget {
             backgroundColor: ColorConstant.appBlue,
             color: ColorConstant.black,
             onRefresh: () async {
-              controller.nameController.text='';
-             controller .resetFilters();
+              controller.nameController.text = '';
+              controller.resetFilters();
             },
             child: Column(
               children: [
@@ -106,71 +106,78 @@ class DoctorSearchScreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                     child:controller.isLoading.value
-                         ? Center(
-                       child:  ListView.builder(
-                         itemCount: 6,
-                         itemBuilder: (_, index) {
-                           return Padding(
-                             padding: const EdgeInsets.symmetric( horizontal: 12,
-                               vertical: 6,),
-                             child: ShimmerContainer(width: MediaQuery.of(context).size.width, height: 98.sp, borderRadius: 7),
-                           );
-                         },
-                       ),
-                     )
-                         : controller.isError.value
-                         ? ErrorView(
-                       onTap: () => controller.onInit(),
-                     )
-                         : controller.doctorList.isEmpty
-                         ? Column(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                         SizedBox(
-                           height: 200.sp,
-                           width: 200.sp,
-                           child: Image.asset(AppImages.noDoctor),
-                         ),
-                         Text(
-                           "No doctors found",
-                           style: TextStyle(fontWeight: FontWeight.bold),
-                         ),
-                       ],
-                     )
-                         :
-                     ListView.builder(
-                      itemCount: controller.doctorList.length,
-                      itemBuilder: (_, index) {
-                        final doctor = controller.doctorList[index];
-                        return GestureDetector(
-                          onTap: () {
-                            Get.toNamed(AppRoute.doctorDetails,arguments: doctor);
-                          },
-                          child: Card(
-                            color: Theme.of(context).cardColor,
-                            margin: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
+                  child: controller.isLoading.value
+                      ? Center(
+                          child: ListView.builder(
+                            itemCount: 6,
+                            itemBuilder: (_, index) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
+                                child: ShimmerContainer(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 98.sp,
+                                  borderRadius: 7,
+                                ),
+                              );
+                            },
+                          ),
+                        )
+                      : controller.isError.value
+                      ? ErrorView(onTap: () => controller.onInit())
+                      : controller.doctorList.isEmpty
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 200.sp,
+                              width: 200.sp,
+                              child: Image.asset(AppImages.noDoctor),
                             ),
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundColor: Theme.of(context).cardColor,
-                                radius: 25,
-                                backgroundImage: NetworkImage(
-                                  doctor.avatarUrl,
+                            Text(
+                              "No doctors found",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        )
+                      : ListView.builder(
+                          itemCount: controller.doctorList.length,
+                          itemBuilder: (_, index) {
+                            final doctor = controller.doctorList[index];
+                            return GestureDetector(
+                              onTap: () {
+                                Get.toNamed(
+                                  AppRoute.doctorDetails,
+                                  arguments: doctor,
+                                );
+                              },
+                              child: Card(
+                                color: Theme.of(context).cardColor,
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
+                                child: ListTile(
+                                  leading: CircleAvatar(
+                                    backgroundColor: Theme.of(
+                                      context,
+                                    ).cardColor,
+                                    radius: 25,
+                                    backgroundImage: NetworkImage(
+                                      doctor.avatarUrl,
+                                    ),
+                                  ),
+                                  title: Text(doctor.name),
+                                  subtitle: Text(
+                                    '${doctor.speciality} • ${doctor.experience} yrs',
+                                  ),
                                 ),
                               ),
-                              title: Text(doctor.name),
-                              subtitle: Text(
-                                '${doctor.speciality} • ${doctor.experience} yrs',
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-
+                            );
+                          },
+                        ),
                 ),
               ],
             ),
