@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../constants/color_constants.dart';
 
 class AppButton extends StatelessWidget {
-  final Function()? onPressed; // Now accepts any function, even with parameters via closure
+  final Function()? onPressed;
   final String text;
   final Color fontColor;
   final Color buttonColor;

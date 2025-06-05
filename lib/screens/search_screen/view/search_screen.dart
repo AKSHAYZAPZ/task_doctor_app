@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_images.dart';
 import '../../../constants/error_view.dart';
-import '../../../widgets/common_extracted_widgets.dart';
+import '../../../widgets/common_widgets.dart';
 import '../../../widgets/radio_widget.dart';
 import '../controller/doctor search_controller.dart';
 
